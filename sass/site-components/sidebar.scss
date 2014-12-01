@@ -3,19 +3,21 @@
 	// dumb (and temporary!) method to aligning space between visible parts of rows to $base-spacing-unit (21px)
 	margin-top: -4px;
 	text-align: center;
-
-	& > * {
-		text-align: left;
-	}
-
-	& > h2 {
-		background-color: $c-bg-light;
-		display: inline-block;
-		padding: 0 $half-spacing-unit;
-	}
-
-	& > form {
-			margin-top: -$base-spacing-unit;
+	
+	& > section {
+		& > * {
+			text-align: left;
+		}
+	
+		& > h2 {
+			background-color: $c-bg-light;
+			display: inline-block;
+			padding: 0 $half-spacing-unit;
+		}
+	
+		& > form {
+				margin-top: -$base-spacing-unit;
+		}
 	}
 
 	form.page__content__sidebar__box {
