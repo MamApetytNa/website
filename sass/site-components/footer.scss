@@ -10,6 +10,7 @@ $footer-height: 3.5rem;
 		top: $rpx solid $c-fg-acc; 
 	};
 	box-sizing: border-box;
+	color: #FFF;
 	height: $footer-height;
 	text-align: left;
 
@@ -36,6 +37,8 @@ $footer-height: 3.5rem;
 			@extend .site-logo;
 
 			font-size: 18px;
+
+			@include scut-text-stroke(1px, #FFF);
 		}
 
 		.page__footer__copyright {

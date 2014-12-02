@@ -203,3 +203,43 @@
         margin-right: $space;
     }
 }
+
+@function text-stroke($colors...) {
+    $stroke: "";
+    @for $i from 1 through length($colors) {
+        $color: nth($colors, $i);
+        $stroke: $stroke + "-#{$i}px 0 #{$color}, #{$i}px 0 #{$color}, 0 -#{$i}px #{$color}, 0 #{$i}px #{$color}";
+        @if $i < length($colors) {
+            $stroke: $stroke + ", ";
+        }
+    }
+    @return unquote($stroke);
+}
+
+// @mixin scut-text-stroke($colors...) {
+//     text-shadow: text-stroke($colors...);
+// }
+
+@mixin scut-text-stroke($width, $color) {
+    $width: $width + 0;
+    $shadow: 0 0 0 transparent;
+    $i: 0;
+    $w: 1;
+
+    @while ($i < $width) {
+        $i: $i + 1;
+        $j: 0;
+        $w: $w + 2;
+
+        @for $r from 1 through $w {
+            @for $c from 1 through $w {
+                $x: $c - ceil($w / 2);
+                $y: $r - ceil($w / 2);
+
+                $shadow: #{$shadow}, #{$x}px #{$y}px 0 $color;
+            }
+        }
+    }
+
+    text-shadow: $shadow;
+}

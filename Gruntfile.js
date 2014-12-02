@@ -17,7 +17,7 @@ module.exports = function (grunt) {
             dev: {
                 server: {
                     port: process.env.PORT || 8080,
-                    host: process.env.IP || '127.0.0.1'
+                    host: process.env.IP || '0.0.0.0'
                 },
             },
             src: {

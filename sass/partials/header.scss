@@ -29,12 +29,27 @@
             width: 40%;
 
             h1 {
-                background-color: $c-bg-acc;
+                @include scut-text-stroke(2px, $c-fg-acc);
+
+                color: #FFF;
                 display: inline-block;
                 line-height: 1;
-                margin-top: -$half-spacing-unit;
-                padding: 3 * $quarter-spacing-unit;
-                text-shadow: 0.05em 0 0.05em $c-bg-light, 0 0.05em 0.05em $c-bg-light, 0 0 0.05em $c-shadow-dark;
+                position: relative;
+
+                &:before {
+                    @include scut-absolute(0 0 0 0);
+                    @include scut-text-stroke(8px, $c-bg-acc);
+
+                    content: "Mam apetyt na...";
+
+                    z-index: 0;
+                }
+
+                & > span,
+                & > a {
+                    position: relative;
+                    z-index: 1;
+                }
             }
         }
 
