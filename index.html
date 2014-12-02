@@ -32,15 +32,18 @@
                     }, 301);
                 });
 
+                if(!document.cookie.match(/welcome_shown/)) {
+                    $welcome.removeClass('hidden');
+                    $welcome.appendTo(document.body);
+
+                    document.cookie='welcome_shown=true';
+                } else {
+                    $welcome.remove();
+                }
+
                 $('.offer-thumbnail').on('click', function(e) {
                     window.location = $(e.currentTarget).data('url');
                 });
-
-                if(!document.cookie.match(/welcome_shown/)) {
-                    $welcome.removeClass('hidden');
-
-                    document.cookie='welcome_shown=true';
-                }
             });
 
         </script>
