@@ -4,7 +4,9 @@ module.exports = function (grunt) {
 
     grunt.registerTask('dev', [
         'clean:dev',
-        'sass:dev',
+        'compass:dev',
+        'autoprefixer:dev',
+        'http-server:dev',
         'watch:dev',
         'clean:dev'
     ]);
@@ -38,13 +40,23 @@ module.exports = function (grunt) {
         clean: {
             dev: [ '<%= config.dist.styles.bundle %>' ]
         },
-        sass: {
+        compass: {
             dev: {
                 options: {
-                    require: [ 'compass', 'compass-inuit', 'scut', 'font-awesome-sass', 'sass-css-importer' ]
+                    require: [ 'compass', 'compass-inuit', 'scut', 'font-awesome-sass', 'sass-css-importer' ],
+                    specify: '<%= config.src.styles.main %>',
+                    sassDir: '<%= config.src.styles.dir %>',
+                    cssDir: '<%= config.dist.styles.dir %>'
+                }
+            }
+        },
+        autoprefixer: {
+            dev: {
+                options: {
+                    browsers: [ 'last 2 versions' ]
                 },
                 files: [{
-                    src: '<%= config.src.styles.main %>',
+                    src: '<%= config.dist.styles.bundle %>',
                     dest: '<%= config.dist.styles.bundle %>'
                 }]
             }
@@ -58,8 +70,9 @@ module.exports = function (grunt) {
                     '<%= config.src.styles.files %>'
                 ],
                 tasks: [
-                    'clean:demo',
-                    'sass:dev'
+                    'clean:dev',
+                    'compass:dev',
+                    'autoprefixer:dev'
                 ]
             }
         },

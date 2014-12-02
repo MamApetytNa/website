@@ -1,9 +1,9 @@
-.comment {
-    $avatar-size: 5.2 * $base-font-size;
-    $v-margin: $quarter-spacing-unit;
-    $h-margin: $quarter-spacing-unit * 3;
-    $border-width: 1px;
+$avatar-size: 5.2 * $base-font-size;
+$v-margin: $quarter-spacing-unit;
+$h-margin: $quarter-spacing-unit * 3;
+$border-width: 1px;
 
+.comment {
     box-sizing: border-box;
     min-height: $avatar-size;
     position: relative;

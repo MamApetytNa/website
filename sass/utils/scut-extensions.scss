@@ -188,3 +188,18 @@
 %scut-vcenter-tt {
     @include scut-vcenter-tt;
 }
+
+@mixin scut-fonticon-label($height: inherit, $icon: '', $space: .0625em) {
+    &:before {
+        content: $icon;
+        display: inline-block;
+        font: {
+            family: inherit;
+            style: normal;
+            weight: normal;
+        };
+        -webkit-font-smoothing: antialiased;
+        vertical-align: middle;
+        margin-right: $space;
+    }
+}

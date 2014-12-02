@@ -1,55 +1,28 @@
 .page__content__sidebar {
-
+	
 	// dumb (and temporary!) method to aligning space between visible parts of rows to $base-spacing-unit (21px)
 	margin-top: -4px;
 	text-align: center;
-	
-	& > section {
-		& > * {
-			text-align: left;
-		}
-	
+
+	header {
+		@include header-with-line("h2");
+
 		& > h2 {
 			background-color: $c-bg-light;
 			display: inline-block;
+			margin-left: 0;
 			padding: 0 $half-spacing-unit;
-		}
-	
-		& > form {
-				margin-top: -$base-spacing-unit;
-		}
-	}
-
-	form.page__content__sidebar__box {
-		margin-bottom: $base-spacing-unit;
-
-		fieldset {
-			border: none {
-				top: 1px solid $c-fg-acc;
-			};
-			padding-top: $base-spacing-unit;
-
-			legend {
-				display: none;
-			}
-		}
-	}
-
-	form.login {
-		overflow: visible;
-		
-		fieldset {
-			text-align: center;
 		}
 	}
 
 	.button--login {
 		@extend .button--call-to-action;
 		
-		display: block;
+		display: inline-block;
 		margin: 0 auto {
 			top: $half-spacing-unit;
 		};
+		text-align: center;
 		transition: background-color 0.2s linear;
 
 		&:hover {
