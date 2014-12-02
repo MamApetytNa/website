@@ -1,6 +1,6 @@
 {
   "name": "appetite-mockup",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Mocked main page of Appetite App",
   "main": "app.js",
   "scripts": {
